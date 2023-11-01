@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Address } from "../types/Address";
 import Cta from "./Cta";
+import { baseAnalyticsProvider } from "./BaseAnalyticsProvider";
 
 export interface BannerProps {
   name?: string;
@@ -21,7 +22,7 @@ const renderPrettyAddress = (address?: Address) => {
 
 const Banner = (props: BannerProps) => {
   const { name, address } = props;
-
+  baseAnalyticsProvider.report({})
   return (
     <>
       <div
@@ -40,11 +41,23 @@ const Banner = (props: BannerProps) => {
                 buttonText="Order Pickup"
                 url="#"
                 style="text-orange bg-white"
+                onClick={() => baseAnalyticsProvider.report({
+                    action: "CTA_CLICK",
+                    customTags: {
+                      ctaType: "PICKUP"
+                    }
+                    })}
               ></Cta>
               <Cta
                 buttonText="Order Delivery"
                 url="#"
                 style="text-orange bg-white"
+                onClick={() => baseAnalyticsProvider.report({
+                  action: "CTA_CLICK",
+                  customTags: {
+                    ctaType: "DELVERY"
+                  }
+                  })}
               ></Cta>
             </div>
           </div>

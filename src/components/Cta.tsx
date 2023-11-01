@@ -5,9 +5,10 @@ export interface CtaProps {
   buttonText: string;
   url?: string;
   style?: string;
+  onClick?: () => void;
 }
 
-const Cta = ({ buttonText, url, style }: CtaProps) => {
+const Cta = ({ buttonText, url, style, onClick }: CtaProps) => {
   return (
     <>
       <a
@@ -18,6 +19,7 @@ const Cta = ({ buttonText, url, style }: CtaProps) => {
         )}
         target=""
         rel="noopener noreferrer"
+        onClick={onClick}
       >
         {buttonText}
       </a>
