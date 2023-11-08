@@ -6,6 +6,7 @@ import { baseAnalyticsProvider } from "./BaseAnalyticsProvider";
 export interface BannerProps {
   name?: string;
   address?: Address;
+  siteUid?: number;
 }
 
 const renderPrettyAddress = (address?: Address) => {
@@ -22,7 +23,7 @@ const renderPrettyAddress = (address?: Address) => {
 
 const Banner = (props: BannerProps) => {
   const { name, address } = props;
-  baseAnalyticsProvider.report({})
+  baseAnalyticsProvider.report({sites:{siteUid:props.siteUid}})
   return (
     <>
       <div
@@ -45,7 +46,8 @@ const Banner = (props: BannerProps) => {
                     action: "CTA_CLICK",
                     customTags: {
                       ctaType: "PICKUP"
-                    }
+                    },
+                    sites:{siteUid:props.siteUid}
                     })}
               ></Cta>
               <Cta
@@ -56,7 +58,8 @@ const Banner = (props: BannerProps) => {
                   action: "CTA_CLICK",
                   customTags: {
                     ctaType: "DELVERY"
-                  }
+                  },
+                  sites:{siteUid:props.siteUid}
                   })}
               ></Cta>
             </div>
