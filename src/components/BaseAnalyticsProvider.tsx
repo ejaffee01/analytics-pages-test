@@ -7,5 +7,9 @@ export const baseAnalyticsProvider = analytics({
     action: "WEBSITE",
     destinationUrl: "https://www.turtleheadtacos.com",
     locale: "en",
+    sites: {
+      siteUid: 157344,
+      template: "turtlehead-tacos"
+    }
     }
   )
