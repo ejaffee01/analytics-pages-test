@@ -4,7 +4,7 @@ export const baseAnalyticsProvider = analytics({
     key: YEXT_PUBLIC_API_KEY,
     env: "SANDBOX"
   }).with({
-    action: "WEBSITE",
+    action: "PAGE_VIEW",
     destinationUrl: "https://www.turtleheadtacos.com",
     locale: "en",
     sites: {
