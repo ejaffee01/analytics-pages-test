@@ -53,9 +53,10 @@ const Banner = (props: BannerProps) => {
                 url="#"
                 style="text-orange bg-white"
                 onClick={() => baseAnalyticsProvider.report({
-                  action: "CTA_CLICK",
-                  customTags: {
-                    ctaType: "DELVERY"
+                  action: "ORDER",
+                  value: {
+                    amount: 10.0,
+                    currency: "USD"
                   }
                   })}
               ></Cta>
